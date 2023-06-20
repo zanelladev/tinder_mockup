@@ -1,5 +1,5 @@
 name: tinder_mockup
-description: Login page tinder mockup
+description: Tinder mockup
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -24,3 +24,5 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/images/
