@@ -31,8 +31,9 @@ class LoginPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
+              width: deviceInfo.size.width,
               child: IconButton(
-                alignment: Alignment.topLeft,
+                alignment: Alignment.centerLeft,
                 onPressed: () {},
                 color: Colors.white,
                 icon: const Icon(
@@ -41,6 +42,7 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(height: deviceInfo.size.height * 0.3),
             SizedBox(
               width: deviceInfo.size.width * 0.5,
               child: Image.asset(
@@ -48,12 +50,17 @@ class LoginPage extends StatelessWidget {
                 fit: BoxFit.fill,
               ),
             ),
+            SizedBox(height: deviceInfo.size.height * 0.15),
             SizedBox(
               width: deviceInfo.size.width * 0.8,
               child: RichText(
                 textAlign: TextAlign.center,
                 text: const TextSpan(
-                  style: TextStyle(),
+                  style: TextStyle(
+                    fontFamily: 'Nunito',
+                    fontWeight: FontWeight.w400,
+                    fontSize: 13,
+                  ),
                   children: [
                     TextSpan(
                         text:
@@ -62,6 +69,7 @@ class LoginPage extends StatelessWidget {
                       text: 'Terms',
                       style: TextStyle(
                         decoration: TextDecoration.underline,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                     TextSpan(text: '. Learn how we process your data in our '),
@@ -69,6 +77,7 @@ class LoginPage extends StatelessWidget {
                       text: 'Privacy Policy',
                       style: TextStyle(
                         decoration: TextDecoration.underline,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                     TextSpan(text: ' and '),
@@ -76,6 +85,7 @@ class LoginPage extends StatelessWidget {
                       text: 'Cookies Policy',
                       style: TextStyle(
                         decoration: TextDecoration.underline,
+                        fontWeight: FontWeight.w500,
                       ),
                     ),
                     TextSpan(text: '.')
@@ -83,18 +93,35 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
             ),
+            SizedBox(height: deviceInfo.size.height * 0.03),
             const CustomOutlineButton(
               icon: Icon(IconData(0xf04be, fontFamily: 'MaterialIcons')),
               text: 'SIGN IN WITH APPLE',
             ),
+            SizedBox(height: deviceInfo.size.height * 0.01),
             const CustomOutlineButton(
               icon: Icon(IconData(0xe255, fontFamily: 'MaterialIcons')),
               text: 'SIGN IN WITH FACEBOOK',
             ),
+            SizedBox(height: deviceInfo.size.height * 0.01),
             const CustomOutlineButton(
               icon: Icon(CupertinoIcons.chat_bubble_fill),
               text: 'SIGN IN WITH PHONE NUMBER',
             ),
+            SizedBox(height: deviceInfo.size.height * 0.03),
+            SizedBox(
+              width: deviceInfo.size.width,
+              child: const Text(
+                'Trouble Signing In?',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'Nunito',
+                  fontWeight: FontWeight.w400,
+                  fontSize: 15,
+                ),
+              ),
+            )
           ],
         ),
       ),

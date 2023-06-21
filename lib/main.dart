@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
-        extensions: <ThemeExtension<dynamic>>[],
+        extensions: const <ThemeExtension<dynamic>>[],
       ),
       home: const LoginPage(),
     );

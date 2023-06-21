@@ -19,18 +19,28 @@ class CustomOutlineButton extends StatelessWidget {
         onPressed: () {},
         icon: icon,
         style: ButtonStyle(
+          fixedSize: MaterialStateProperty.all(
+              Size.fromHeight(deviceInfo.size.height * 0.06)),
+          iconSize: MaterialStateProperty.all(20),
           alignment: Alignment.centerLeft,
           foregroundColor: MaterialStateProperty.all(Colors.white),
           side: MaterialStateProperty.all(
             const BorderSide(
-              width: 2,
+              width: 1.5,
               color: Colors.white,
             ),
           ),
         ),
-        label: Text(
-          text,
-          textAlign: TextAlign.center,
+        label: Center(
+          child: Text(
+            text,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontFamily: 'NunitoAsset',
+              fontSize: 13,
+              letterSpacing: 2,
+            ),
+          ),
         ),
       ),
     );
