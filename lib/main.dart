@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tinder_mockup/src/constants/theme/theme_module.dart';
 import 'package:tinder_mockup/src/ui/pages/login_page.dart';
 
 void main() => runApp(const MyApp());
@@ -13,7 +14,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
-        extensions: const <ThemeExtension<dynamic>>[],
+        extensions: <ThemeExtension<dynamic>>[
+          AppColors.light(),
+          AppText.mobile(),
+        ],
       ),
       home: const LoginPage(),
     );
