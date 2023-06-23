@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:tinder_mockup/src/constants/theme/colors/app_colors.dart';
+import 'package:tinder_mockup/src/constants/theme/text/app_text.dart';
 import 'package:tinder_mockup/src/ui/widgets/outline_button.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:tinder_mockup/src/constants/theme/theme_module.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final myColors = Theme.of(context).extension<AppColors>()!;
+    final appTheme = Theme.of(context);
+    final appColors = appTheme.extension<AppColors>()!;
+    final appText = appTheme.extension<AppText>()!;
+
     final deviceInfo = MediaQuery.of(context);
     return Scaffold(
       body: Container(
@@ -19,8 +23,8 @@ class LoginPage extends StatelessWidget {
             begin: Alignment.bottomLeft,
             end: Alignment.topRight,
             colors: <Color>[
-              myColors.bgColor1,
-              myColors.bgColor2,
+              appColors.bgColor1,
+              appColors.bgColor2,
             ],
             stops: const [0.3, 1],
           ),
@@ -54,13 +58,9 @@ class LoginPage extends StatelessWidget {
               width: deviceInfo.size.width * 0.8,
               child: RichText(
                 textAlign: TextAlign.center,
-                text: const TextSpan(
-                  style: TextStyle(
-                    fontFamily: 'Nunito',
-                    fontWeight: FontWeight.w400,
-                    fontSize: 13,
-                  ),
-                  children: [
+                text: TextSpan(
+                  style: appText.nunitoDefault,
+                  children: const [
                     TextSpan(
                         text:
                             'By tapping Create Account or Sign In, you agree to our '),
@@ -115,15 +115,10 @@ class LoginPage extends StatelessWidget {
             SizedBox(height: deviceInfo.size.height * 0.03),
             SizedBox(
               width: deviceInfo.size.width,
-              child: const Text(
+              child: Text(
                 'Trouble Signing In?',
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: Colors.white,
-                  fontFamily: 'Nunito',
-                  fontWeight: FontWeight.w400,
-                  fontSize: 15,
-                ),
+                style: appText.nunitoDefault.copyWith(fontSize: 15),
               ),
             )
           ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tinder_mockup/src/constants/theme/text/app_text.dart';
 
 class CustomOutlineButton extends StatelessWidget {
   final String text;
@@ -15,12 +16,15 @@ class CustomOutlineButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     MediaQueryData deviceInfo = MediaQuery.of(context);
+    final appText = Theme.of(context).extension<AppText>()!;
     return SizedBox(
       width: width,
       child: OutlinedButton.icon(
         onPressed: () {},
         icon: icon,
         style: ButtonStyle(
+          shape: MaterialStateProperty.all(RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(25.0))),
           fixedSize: MaterialStateProperty.all(
             Size.fromHeight(
               deviceInfo.size.height * 0.06,
@@ -40,11 +44,7 @@ class CustomOutlineButton extends StatelessWidget {
           child: Text(
             text,
             textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontFamily: 'NunitoAsset',
-              fontSize: 13,
-              letterSpacing: 2,
-            ),
+            style: appText.buttonText,
           ),
         ),
       ),

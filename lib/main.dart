@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tinder_mockup/src/constants/theme/theme_module.dart';
+import 'package:tinder_mockup/src/constants/theme/theme.dart';
 import 'package:tinder_mockup/src/ui/pages/login_page.dart';
 
 void main() => runApp(const MyApp());
@@ -12,13 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Tinder Mockup',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        extensions: <ThemeExtension<dynamic>>[
-          AppColors.light(),
-          AppText.mobile(),
-        ],
-      ),
+      theme: AppTheme.lightheme,
       home: const LoginPage(),
     );
   }
