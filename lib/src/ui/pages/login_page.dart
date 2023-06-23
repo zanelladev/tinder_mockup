@@ -1,29 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:tinder_mockup/src/ui/widgets/outline_button.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:tinder_mockup/src/constants/theme/theme_module.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    MediaQueryData deviceInfo = MediaQuery.of(context);
+    final myColors = Theme.of(context).extension<AppColors>()!;
+    final deviceInfo = MediaQuery.of(context);
     return Scaffold(
       body: Container(
         width: deviceInfo.size.width,
         height: deviceInfo.size.height,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.bottomLeft,
             end: Alignment.topRight,
             colors: <Color>[
-              Color.fromARGB(255, 232, 75, 117),
-              Color.fromARGB(255, 237, 115, 99),
+              myColors.bgColor1,
+              myColors.bgColor2,
             ],
-            stops: [
-              0.3,
-              1,
-            ],
+            stops: const [0.3, 1],
           ),
         ),
         child: Column(
@@ -94,19 +93,24 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             SizedBox(height: deviceInfo.size.height * 0.03),
-            const CustomOutlineButton(
-              icon: Icon(IconData(0xf04be, fontFamily: 'MaterialIcons')),
+            CustomOutlineButton(
+              icon: const Icon(IconData(0xf04be, fontFamily: 'MaterialIcons')),
               text: 'SIGN IN WITH APPLE',
+              width: deviceInfo.size.width * 0.9,
             ),
             SizedBox(height: deviceInfo.size.height * 0.01),
-            const CustomOutlineButton(
-              icon: Icon(IconData(0xe255, fontFamily: 'MaterialIcons')),
+            CustomOutlineButton(
+              icon: const Icon(IconData(0xe255, fontFamily: 'MaterialIcons')),
               text: 'SIGN IN WITH FACEBOOK',
+              width: deviceInfo.size.width * 0.9,
             ),
-            SizedBox(height: deviceInfo.size.height * 0.01),
-            const CustomOutlineButton(
-              icon: Icon(CupertinoIcons.chat_bubble_fill),
+            SizedBox(
+              height: deviceInfo.size.height * 0.01,
+            ),
+            CustomOutlineButton(
+              icon: const Icon(CupertinoIcons.chat_bubble_fill),
               text: 'SIGN IN WITH PHONE NUMBER',
+              width: deviceInfo.size.width * 0.9,
             ),
             SizedBox(height: deviceInfo.size.height * 0.03),
             SizedBox(
